@@ -14,6 +14,7 @@ public class SplashScreen extends AppCompatActivity {
             super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_splash);
         gotoSignUp();
+        finish();
     }
 
     public void gotoSignUp(){

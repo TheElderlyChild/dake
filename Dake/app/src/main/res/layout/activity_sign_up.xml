@@ -43,6 +43,7 @@
 
     <com.hbb20.CountryCodePicker
         android:id="@+id/country_code_picker"
+        app:ccp_autoDetectCountry="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

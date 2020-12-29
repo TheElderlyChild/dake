@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dake">
+<<<<<<< HEAD
         <activity android:name=".views.RestaurantPreview"></activity>
+=======
+        <activity android:name=".views.MenuActivity"></activity>
+>>>>>>> 417f69e968ad9a5e60930e139c9c93b1413ae201
         <activity android:name=".views.AccountActivity" />
         <activity android:name=".views.SearchActivity" />
         <activity android:name=".views.HomePage" />

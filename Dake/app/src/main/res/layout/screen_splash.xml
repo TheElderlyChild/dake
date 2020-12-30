@@ -7,24 +7,14 @@
     tools:context=".views.SplashScreen">
 
     <ImageView
-        android:id="@+id/imgLogo"
-        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dake_logo_production" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:text="Restaurant Reservation App"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.200" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

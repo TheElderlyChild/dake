@@ -8,16 +8,11 @@ import android.view.View;
 
 import com.application.dake.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignUpEmailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-    }
-
-    public void gotoSignUp(View view){
-        Intent signUpIntent = new Intent(this, SignUpEmailActivity.class);
-        startActivity(signUpIntent);
+        setContentView(R.layout.activity_sign_up_email);
     }
 }

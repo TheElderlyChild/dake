@@ -18,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     public void gotoSignUp(){
-        Intent signUpIntent = new Intent(this, AuthActivity.class);
+        Intent signUpIntent = new Intent(this, SignUpEmailActivity.class);
         startActivity(signUpIntent);
     }
 

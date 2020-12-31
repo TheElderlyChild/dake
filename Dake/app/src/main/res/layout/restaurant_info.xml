@@ -5,7 +5,8 @@
     android:id="@+id/card_view"
 android:layout_gravity="center"
 android:layout_width="match_parent"
-android:layout_height="400dp"
+android:layout_height="wrap_content"
+android:layout_margin="10dp"
 >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,8 +17,8 @@ android:layout_height="400dp"
 
         <ImageView
             android:id="@+id/restaurantImage"
-            android:layout_width="397dp"
-            android:layout_height="240dp"
+            android:layout_width="391dp"
+            android:layout_height="226dp"
             app:layout_constraintBottom_toTopOf="@+id/restaurantName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +27,8 @@ android:layout_height="400dp"
 
         <TextView
             android:id="@+id/restaurantName"
-            android:layout_width="272dp"
-            android:layout_height="75dp"
+            android:layout_width="256dp"
+            android:layout_height="74dp"
             android:text="TextView"
             app:layout_constraintBottom_toTopOf="@+id/restaurantAddress"
             app:layout_constraintEnd_toStartOf="@+id/restaurantRating"
@@ -36,7 +37,7 @@ android:layout_height="400dp"
 
         <TextView
             android:id="@+id/restaurantRating"
-            android:layout_width="129dp"
+            android:layout_width="127dp"
             android:layout_height="74dp"
 
 
@@ -45,7 +46,7 @@ android:layout_height="400dp"
             app:layout_constraintBottom_toTopOf="@+id/restaurantFoodType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/restaurantImage"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/restaurantAddress"

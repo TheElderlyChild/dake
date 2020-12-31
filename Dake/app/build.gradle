@@ -53,4 +53,6 @@ dependencies {
     // Declare the dependencies for any other desired Firebase products
     // For example, declare the dependencies for Firebase Authentication
     implementation 'com.google.firebase:firebase-auth'
+    //cardview dependecy
+    implementation "androidx.cardview:cardview:1.0.0"
 }

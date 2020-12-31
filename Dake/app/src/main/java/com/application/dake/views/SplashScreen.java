@@ -14,11 +14,11 @@ public class SplashScreen extends AppCompatActivity {
             super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_splash);
         gotoSignUp();
-        finish();
     }
 
     public void gotoSignUp(){
-        Intent signUpIntent = new Intent(this, SignUpEmailActivity.class);
+        Intent signUpIntent = new Intent(this, AuthActivity.class);
+        finish();
         startActivity(signUpIntent);
     }
 

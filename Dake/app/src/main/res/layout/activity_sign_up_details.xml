@@ -7,7 +7,7 @@
     tools:context=".views.SignUpDetails">
 
     <com.hbb20.CountryCodePicker
-        android:id="@+id/country_code_picker"
+        android:id="@+id/inputEmail"
         android:layout_width="132dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.649"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country_code_picker" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -72,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/country_code_picker"
+        app:layout_constraintStart_toEndOf="@+id/inputEmail"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.48" />
 

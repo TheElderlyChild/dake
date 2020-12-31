@@ -1,6 +1,7 @@
 package com.application.dake.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -18,7 +19,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         restaurants = (RecyclerView) findViewById(R.id.restaurants);
-  /*      Restaurant[] a;
+     Restaurant[] a;
         a=new Restaurant[5];
         Restaurant b;
 
@@ -26,10 +27,8 @@ public class HomePage extends AppCompatActivity {
             b= new Restaurant("le bistro",i,null, null,null );
             a[i]=b;
         }
-        //Restaurant_infoAdapter okay= new Restaurant_infoAdapter(a);
-        //restaurants.setAdapter(okay);
-    */
-
-
+        restaurants.setLayoutManager(new LinearLayoutManager(this));
+        Restaurant_infoAdapter okay= new Restaurant_infoAdapter(a);
+        restaurants.setAdapter(okay);
     }
 }

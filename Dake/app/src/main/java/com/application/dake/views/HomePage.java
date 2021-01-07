@@ -18,7 +18,7 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        restaurants = (RecyclerView) findViewById(R.id.restaurants);
+        //restaurants = (RecyclerView) findViewById(R.id.scrollView2);
      Restaurant[] a;
         a=new Restaurant[5];
         Restaurant b;

@@ -7,17 +7,7 @@
     android:layout_margin="40dp"
     tools:context=".views.AuthActivity">
 
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Join Now"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+
 
 
     <Button
@@ -30,9 +20,7 @@
         android:textColor="#408fb4"
         android:textSize="18sp"
         app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
-        app:layout_constraintStart_toStartOf="@+id/btnSignUp" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -47,7 +35,7 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/search_resturant_img"
         tools:layout_editor_absoluteX="0dp" />

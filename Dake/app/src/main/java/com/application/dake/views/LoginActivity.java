@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         textNewUser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                gotoSignUp();
+
             }
         });
 
@@ -85,12 +85,6 @@ public class LoginActivity extends AppCompatActivity {
                         // ...
                     }
                 });
-    }
-
-    public void gotoSignUp(){
-        Intent signUpIntent = new Intent(this, SignUpEmailActivity.class);
-        finish();
-        startActivity(signUpIntent);
     }
 
     public void gotoHomePage(){

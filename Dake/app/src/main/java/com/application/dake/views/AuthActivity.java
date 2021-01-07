@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.application.dake.R;
 import com.firebase.ui.auth.AuthUI;
@@ -19,7 +20,6 @@ import java.util.List;
 public class AuthActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private Button btnSignUp;
     private Button btnLogin;
 
     private static final int RC_SIGN_IN = 123;
@@ -31,15 +31,7 @@ public class AuthActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        btnSignUp = (Button) findViewById(R.id.btnSignUp);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-
-        btnSignUp.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -47,6 +39,7 @@ public class AuthActivity extends AppCompatActivity {
                 signUpBuilderActivity();
             }
         });
+
     }
 
     @Override
@@ -54,6 +47,7 @@ public class AuthActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        mAuth.signOut();
         if (currentUser!=null) gotoHomePage();
     }
 
@@ -61,11 +55,6 @@ public class AuthActivity extends AppCompatActivity {
         Intent HomePageIntent = new Intent(this, HomePage.class);
         finish();
         startActivity(HomePageIntent);
-    }
-
-    public void gotoLogin(){
-        Intent LoginIntent = new Intent(this, LoginActivity.class);
-        startActivity(LoginIntent);
     }
 
     public void signUpBuilderActivity(){
@@ -93,6 +82,7 @@ public class AuthActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                gotoHomePage();
                 // ...
             } else {
                 // Sign in failed. If response is null the user canceled the

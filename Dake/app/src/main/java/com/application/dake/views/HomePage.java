@@ -18,8 +18,8 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        //restaurants = (RecyclerView) findViewById(R.id.scrollView2);
-     Restaurant[] a;
+        /*
+        Restaurant[] a;
         a=new Restaurant[5];
         Restaurant b;
 
@@ -30,5 +30,7 @@ public class HomePage extends AppCompatActivity {
         restaurants.setLayoutManager(new LinearLayoutManager(this));
         Restaurant_infoAdapter okay= new Restaurant_infoAdapter(a);
         restaurants.setAdapter(okay);
+
+         */
     }
 }

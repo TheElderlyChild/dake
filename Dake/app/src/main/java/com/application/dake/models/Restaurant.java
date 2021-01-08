@@ -1,47 +1,38 @@
 package com.application.dake.models;
 
-import android.location.Address;
-
-import java.time.LocalTime;
+import java.net.URI;
+import java.util.List;
 
 public class Restaurant {
     private String name;
     private Integer capacity;
-    private Address address;
-    private Float rating;
-    private LocalTime startTime;
-    private LocalTime closeTime;
+    private String address;
+    private Double rating;
+    private String description;
+    private URI imgURI;
+    private String phoneNo;
+    private List<MenuItem> menu;
 
-    public Restaurant(String name, Integer capacity, Address address, LocalTime startTime, LocalTime closeTime) {
+    public List<MenuItem> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(List<MenuItem> menu) {
+        this.menu = menu;
+    }
+
+
+    public Restaurant() {
+    }
+
+    public Restaurant(String name, Integer capacity, String address, Double rating, String description, URI imgURI, String phoneNo) {
         this.name = name;
         this.capacity = capacity;
         this.address = address;
-        this.startTime = startTime;
-        this.closeTime = closeTime;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public Float getRating() {
-        return rating;
-    }
-
-    public LocalTime getStartTime() {
-        return startTime;
-    }
-
-    public LocalTime getCloseTime() {
-        return closeTime;
+        this.rating = rating;
+        this.description = description;
+        this.imgURI = imgURI;
+        this.phoneNo = phoneNo;
     }
 
     public void setName(String name) {
@@ -52,19 +43,52 @@ public class Restaurant {
         this.capacity = capacity;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setCloseTime(LocalTime closeTime) {
-        this.closeTime = closeTime;
+    public void setImgURI(URI imgURI) {
+        this.imgURI = imgURI;
     }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public URI getImgURI() {
+        return imgURI;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
 }

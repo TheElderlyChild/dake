@@ -1,6 +1,5 @@
 package com.application.dake.models;
 
-import java.net.URI;
 import java.util.List;
 
 public class Restaurant {
@@ -9,8 +8,9 @@ public class Restaurant {
     private String address;
     private Double rating;
     private String description;
-    private URI imgURI;
+    private String imageUrl;
     private String phoneNo;
+    private String type;
     private List<MenuItem> menu;
 
     public List<MenuItem> getMenu() {
@@ -25,14 +25,15 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(String name, Integer capacity, String address, Double rating, String description, URI imgURI, String phoneNo) {
+    public Restaurant(String name, Integer capacity, String address, Double rating, String description, String imageUrl, String phoneNo, String type) {
         this.name = name;
         this.capacity = capacity;
         this.address = address;
         this.rating = rating;
         this.description = description;
-        this.imgURI = imgURI;
+        this.imageUrl = imageUrl;
         this.phoneNo = phoneNo;
+        this.type = type;
     }
 
     public void setName(String name) {
@@ -55,12 +56,16 @@ public class Restaurant {
         this.description = description;
     }
 
-    public void setImgURI(URI imgURI) {
-        this.imgURI = imgURI;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -83,12 +88,17 @@ public class Restaurant {
         return description;
     }
 
-    public URI getImgURI() {
-        return imgURI;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getPhoneNo() {
         return phoneNo;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public String toString() {return name + " " + description;}
 }

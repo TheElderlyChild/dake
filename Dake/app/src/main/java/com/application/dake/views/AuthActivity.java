@@ -47,7 +47,7 @@ public class AuthActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        mAuth.signOut();
+        //mAuth.signOut();
         if (currentUser!=null) gotoHomePage();
     }
 

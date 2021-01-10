@@ -1,5 +1,7 @@
 package com.application.dake.controllers;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +10,20 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.application.dake.GlideApp;
 import com.application.dake.R;
 import com.application.dake.models.Restaurant;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.module.AppGlideModule;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.List;
 
 public class Restaurant_infoAdapter extends RecyclerView.Adapter<Restaurant_infoAdapter.ViewHolder> {
-    private Restaurant[] localDataSet;
+    private List<Restaurant> localDataSet;
+    private Context context;
+    private static final String TAG = "Adapter";
 
     /**
      * Provide a reference to the type of views that you are using
@@ -47,9 +58,12 @@ public class Restaurant_infoAdapter extends RecyclerView.Adapter<Restaurant_info
             return picture;
         }
 
+        /*
         public TextView getRating() {
             return rating;
         }
+
+         */
 
         public TextView getType() {
             return type;
@@ -62,7 +76,8 @@ public class Restaurant_infoAdapter extends RecyclerView.Adapter<Restaurant_info
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public Restaurant_infoAdapter(Restaurant[] dataSet) {
+    public Restaurant_infoAdapter(Context context, List<Restaurant> dataSet) {
+        this.context = context;
         localDataSet = dataSet;
     }
 
@@ -79,15 +94,27 @@ public class Restaurant_infoAdapter extends RecyclerView.Adapter<Restaurant_info
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.getName().setText(localDataSet[position].getName());
+        viewHolder.getName().setText(localDataSet.get(position).getName());
+        viewHolder.getAddress().setText(localDataSet.get(position).getAddress());
+        viewHolder.getType().setText(localDataSet.get(position).getType());
+        // Create a reference to a file from a Google Cloud Storage URI
+        StorageReference gsReference = storageRef.child(localDataSet.get(position).getImageUrl());
+        // Download directly from StorageReference using Glide
+        // (See MyAppGlideModule for Loader registration)
+
+        Glide.with(context /* context */)
+                .load(gsReference)
+                .into(viewHolder.getPicture());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return localDataSet.length;
+        return localDataSet.size();
     }
 }

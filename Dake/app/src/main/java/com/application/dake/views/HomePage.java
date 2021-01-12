@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.application.dake.R;
@@ -22,6 +25,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
+    private ImageView profileIcon;
+    private ImageView searchIcon;
     private LinearLayout restaurantCards;
     private static final String TAG = "HomePage";
     private ArrayList<Restaurant> restaurants;
@@ -37,10 +42,27 @@ public class HomePage extends AppCompatActivity {
         CollectionReference cr = db.collection("restaurants");
         restaurants = new ArrayList<Restaurant>();
 
+        profileIcon=findViewById(R.id.profileIcon);
+        searchIcon=findViewById(R.id.searchIcon);
+
         RestaurantInfoAdapter adapter = new RestaurantInfoAdapter(this, restaurants);
         card.setLayoutManager(new LinearLayoutManager(this));
         card.setAdapter(adapter);
         restaurantCards.addView(card);
+
+        profileIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoAccounts(v);
+            }
+        });
+
+        searchIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoSearch(v);
+            }
+        });
 
         cr.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -57,5 +79,16 @@ public class HomePage extends AppCompatActivity {
                 }
             };
         });
+
+    }
+
+    public void gotoAccounts(View view){
+        Intent accountIntent = new Intent(this, AccountActivity.class);
+        startActivity(accountIntent);
+    }
+
+    public void gotoSearch(View view){
+        Intent searchIntent = new Intent(this, SearchActivity.class);
+        startActivity(searchIntent);
     }
 }

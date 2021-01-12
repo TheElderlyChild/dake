@@ -8,11 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.application.dake.R;
-import com.application.dake.controllers.Restaurant_infoAdapter;
+import com.application.dake.controllers.RestaurantInfoAdapter;
 import com.application.dake.models.Restaurant;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,8 +18,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -41,7 +37,7 @@ public class HomePage extends AppCompatActivity {
         CollectionReference cr = db.collection("restaurants");
         restaurants = new ArrayList<Restaurant>();
 
-        Restaurant_infoAdapter adapter = new Restaurant_infoAdapter(this, restaurants);
+        RestaurantInfoAdapter adapter = new RestaurantInfoAdapter(this, restaurants);
         card.setLayoutManager(new LinearLayoutManager(this));
         card.setAdapter(adapter);
         restaurantCards.addView(card);

@@ -1,7 +1,6 @@
 package com.application.dake.controllers;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +9,15 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.application.dake.GlideApp;
 import com.application.dake.R;
 import com.application.dake.models.Restaurant;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.module.AppGlideModule;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
-public class Restaurant_infoAdapter extends RecyclerView.Adapter<Restaurant_infoAdapter.ViewHolder> {
+public class RestaurantInfoAdapter extends RecyclerView.Adapter<RestaurantInfoAdapter.ViewHolder> {
     private List<Restaurant> localDataSet;
     private Context context;
     private static final String TAG = "Adapter";
@@ -76,7 +73,7 @@ public class Restaurant_infoAdapter extends RecyclerView.Adapter<Restaurant_info
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public Restaurant_infoAdapter(Context context, List<Restaurant> dataSet) {
+    public RestaurantInfoAdapter(Context context, List<Restaurant> dataSet) {
         this.context = context;
         localDataSet = dataSet;
     }

@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     tools:context=".views.HomePage">
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="553dp"
+        android:layout_height="533dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -20,49 +21,61 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
+    <TextView
+        android:id="@+id/addressInput"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:layout_marginBottom="1dp"
+        android:layout_height="88dp"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:text="Where are you?"
+        android:theme="@style/Widget.AppCompat.EditText"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintTop_toBottomOf="@+id/profileIcon"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toStartOf="@+id/locationIcon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="80dp"
-        android:layout_height="79dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        app:layout_constraintEnd_toStartOf="@+id/imageView9"
-        tools:srcCompat="@tools:sample/avatars" />
+    </TextView>
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="80dp"
-        android:layout_height="79dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="80dp"
-        android:layout_height="79dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        android:id="@+id/locationIcon"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/addressInput"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="@+id/addressInput"
+        app:srcCompat="@drawable/ic_location_icon" />
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="80dp"
-        android:layout_height="79dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:id="@+id/profileIcon"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/addressInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_profile_icon" />
+
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/dakeLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dakeLogo"
+        app:srcCompat="@drawable/ic_search_icon" />
+
+    <ImageView
+        android:id="@+id/dakeLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="@+id/profileIcon"
+        app:layout_constraintEnd_toStartOf="@+id/searchIcon"
+        app:layout_constraintStart_toEndOf="@+id/profileIcon"
+        app:layout_constraintTop_toTopOf="@+id/profileIcon"
+        app:srcCompat="@drawable/dake_logo_production" />
 </androidx.constraintlayout.widget.ConstraintLayout>

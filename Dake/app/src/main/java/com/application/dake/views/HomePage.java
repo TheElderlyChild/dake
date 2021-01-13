@@ -89,7 +89,7 @@ public class HomePage extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());
-                        Restaurant restaurant = document.toObject(Restaurant.class);
+                        Restaurant restaurant = document.toObject(Restaurant.class).withId(document.getId());
                         restaurants.add(restaurant);
                     }
                     adapter.notifyDataSetChanged();

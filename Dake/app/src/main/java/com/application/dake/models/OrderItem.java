@@ -1,6 +1,6 @@
 package com.application.dake.models;
 
-public class OrderItem {
+public class OrderItem extends Model{
     private String name;
     private int amount;
     private double price;

@@ -32,7 +32,7 @@ public class RestaurantInfoAdapter extends RecyclerView.Adapter<RestaurantInfoAd
         public void onClick(View view) {
             int itemPosition = mRecyclerView.getChildLayoutPosition(view);
             Restaurant item =localDataSet.get(itemPosition);
-            gotoRestaurantPreview(view,item.getId());
+            gotoRestaurantPreview(view,item.id);
         }
     };
 

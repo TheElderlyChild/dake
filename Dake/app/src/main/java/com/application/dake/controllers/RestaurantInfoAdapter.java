@@ -24,10 +24,9 @@ import java.util.List;
 public class RestaurantInfoAdapter extends RecyclerView.Adapter<RestaurantInfoAdapter.ViewHolder> {
     private List<Restaurant> localDataSet;
     private Context context;
-    private static final String TAG = "Adapter";
+    private static final String TAG = "Restaurant Adapter";
     private RecyclerView mRecyclerView;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener(){
-
         @Override
         public void onClick(View view) {
             int itemPosition = mRecyclerView.getChildLayoutPosition(view);

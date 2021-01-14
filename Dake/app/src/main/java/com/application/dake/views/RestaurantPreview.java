@@ -43,7 +43,6 @@ public class RestaurantPreview extends AppCompatActivity {
     private TextView textCategory;
     private RecyclerView recyclerMenu;
     private static final String TAG = "RestaurantPreview";
-    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +82,7 @@ public class RestaurantPreview extends AppCompatActivity {
         //Fill in menu items of the restaurant
         List<MenuItem> menu = new ArrayList<MenuItem>();
         MenuItemAdapter adapter = new MenuItemAdapter(menu);
-        recyclerMenu.setLayoutManager(new LinearLayoutManager(context));
+        recyclerMenu.setLayoutManager(new LinearLayoutManager(this));
         recyclerMenu.setAdapter(adapter);
 
         CollectionReference menuCollection = db.collection("restaurants")
@@ -101,7 +100,7 @@ public class RestaurantPreview extends AppCompatActivity {
                 } else {
                     Log.w(TAG, "Error getting documents: ", task.getException());
                 }
-            };
+            }
         });
 
         //Fill in preview images of the restaurant

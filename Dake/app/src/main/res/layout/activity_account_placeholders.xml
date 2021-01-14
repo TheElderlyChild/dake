@@ -17,16 +17,16 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/accountText"
             android:layout_width="317dp"
             android:layout_height="85dp"
             android:layout_marginEnd="7dp"
             android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintEnd_toStartOf="@+id/accountImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/accountImage"
             android:layout_width="81dp"
             android:layout_height="87dp"
             app:layout_constraintEnd_toEndOf="parent"

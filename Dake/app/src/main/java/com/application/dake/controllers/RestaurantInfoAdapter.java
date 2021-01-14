@@ -8,9 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.application.dake.R;
 import com.application.dake.models.Restaurant;
+import com.application.dake.R;
 import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;

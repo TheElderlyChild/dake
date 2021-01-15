@@ -81,7 +81,7 @@ public class RestaurantPreview extends AppCompatActivity {
 
         //Fill in menu items of the restaurant
         List<MenuItem> menu = new ArrayList<MenuItem>();
-        MenuItemAdapter adapter = new MenuItemAdapter(menu);
+        MenuItemAdapter adapter = new MenuItemAdapter(this, menu);
         recyclerMenu.setLayoutManager(new LinearLayoutManager(this));
         recyclerMenu.setAdapter(adapter);
 
@@ -104,6 +104,7 @@ public class RestaurantPreview extends AppCompatActivity {
         });
 
         //Fill in preview images of the restaurant
+        /*
         List<StorageReference> previewImageList=new ArrayList<StorageReference>();
 
         StorageReference listRef = storage.getReference().child("restaurantPreviewImages/"+id);
@@ -118,6 +119,8 @@ public class RestaurantPreview extends AppCompatActivity {
                 // Uh-oh, an error occurred!
             }
         });
+
+         */
     }
 
 }

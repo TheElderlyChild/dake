@@ -30,7 +30,7 @@ public class AccountActivity extends AppCompatActivity {
         AccountsList.add(new AccountItem("Rewards",R.drawable.ic_rewards ));
         AccountsList.add(new AccountItem("About",R.drawable.ic_about ));
 
-        accountRecycler= findViewById(R.id.recyclerView);
+        accountRecycler= findViewById(R.id.accountRecycler);
         accountRecycler.setHasFixedSize(true);
         accountLayoutManager= new LinearLayoutManager(this);
         accountAdapter= new AccountAdapter(AccountsList);

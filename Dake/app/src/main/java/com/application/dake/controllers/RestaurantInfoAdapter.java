@@ -12,11 +12,11 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 import com.application.dake.models.Restaurant;
-<<<<<<< HEAD
+
 import com.application.dake.R;
-=======
+
 import com.application.dake.views.RestaurantPreview;
->>>>>>> 6c0cf9ca753940fbeff7bbab9d4c2a951cca9beb
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;

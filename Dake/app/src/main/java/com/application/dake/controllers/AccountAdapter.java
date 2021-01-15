@@ -22,7 +22,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountV
         public ImageView imageResource;
         public TextView item;
 
-        public AccountViewHolder(@NonNull View itemView) {
+        public AccountViewHolder( View itemView) {
             super(itemView);
             imageResource=itemView.findViewById(R.id.accountImage);
             item= itemView.findViewById(R.id.accountText);
@@ -32,16 +32,16 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountV
         mAccountList= accountItemArrayList;
     }
 
-    @NonNull
+
     @Override
-    public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AccountViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(activity_account_placeholders,parent,false);
         AccountViewHolder acc= new AccountViewHolder(v);
         return acc;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AccountViewHolder holder, int position) {
+    public void onBindViewHolder(AccountViewHolder holder, int position) {
         AccountItem currentItem=mAccountList.get(position);
 
         holder.imageResource.setImageResource(currentItem.getImageResource());

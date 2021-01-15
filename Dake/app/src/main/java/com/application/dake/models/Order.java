@@ -4,7 +4,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
-public class Order {
+public class Order extends Model{
     private Restaurant restaurant;
     private FirebaseUser customer;
     private String type;

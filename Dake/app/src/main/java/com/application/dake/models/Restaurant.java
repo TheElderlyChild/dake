@@ -2,7 +2,7 @@ package com.application.dake.models;
 
 import java.util.List;
 
-public class Restaurant {
+public class Restaurant extends Model{
     private String name;
     private Integer capacity;
     private String address;

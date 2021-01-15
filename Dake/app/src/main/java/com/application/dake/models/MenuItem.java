@@ -2,7 +2,7 @@ package com.application.dake.models;
 
 import javax.xml.namespace.QName;
 
-public class MenuItem {
+public class MenuItem extends Model{
     private String name;
     private String description;
     private String category;

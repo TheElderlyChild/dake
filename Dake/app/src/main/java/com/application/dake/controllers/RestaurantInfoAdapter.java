@@ -1,15 +1,22 @@
 package com.application.dake.controllers;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 import com.application.dake.models.Restaurant;
+<<<<<<< HEAD
 import com.application.dake.R;
+=======
+import com.application.dake.views.RestaurantPreview;
+>>>>>>> 6c0cf9ca753940fbeff7bbab9d4c2a951cca9beb
 import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -19,7 +26,16 @@ import java.util.List;
 public class RestaurantInfoAdapter extends RecyclerView.Adapter<RestaurantInfoAdapter.ViewHolder> {
     private List<Restaurant> localDataSet;
     private Context context;
-    private static final String TAG = "Adapter";
+    private static final String TAG = "Restaurant Adapter";
+    private RecyclerView mRecyclerView;
+    private final View.OnClickListener mOnClickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            int itemPosition = mRecyclerView.getChildLayoutPosition(view);
+            Restaurant item =localDataSet.get(itemPosition);
+            gotoRestaurantPreview(view,item.id);
+        }
+    };
 
     /**
      * Provide a reference to the type of views that you are using
@@ -83,8 +99,15 @@ public class RestaurantInfoAdapter extends RecyclerView.Adapter<RestaurantInfoAd
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.restaurant_info, viewGroup, false);
-
+        view.setOnClickListener(mOnClickListener);
         return new ViewHolder(view);
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        mRecyclerView = recyclerView;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -112,5 +135,11 @@ public class RestaurantInfoAdapter extends RecyclerView.Adapter<RestaurantInfoAd
     @Override
     public int getItemCount() {
         return localDataSet.size();
+    }
+
+    public void gotoRestaurantPreview(View view, String id){
+        Intent previewIntent = new Intent(context, RestaurantPreview.class);
+        previewIntent.putExtra("id",id);
+        context.startActivity(previewIntent);
     }
 }

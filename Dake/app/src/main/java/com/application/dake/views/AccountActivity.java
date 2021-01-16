@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.application.dake.R;
 import com.application.dake.controllers.AccountAdapter;
@@ -33,10 +34,11 @@ public class AccountActivity extends AppCompatActivity {
         accountRecycler= findViewById(R.id.accountRecycler);
         accountRecycler.setHasFixedSize(true);
         accountLayoutManager= new LinearLayoutManager(this);
-        accountAdapter= new AccountAdapter(AccountsList);
+        accountAdapter= new AccountAdapter(AccountsList,this);
 
         accountRecycler.setLayoutManager(accountLayoutManager);
         accountRecycler.setAdapter(accountAdapter);
 
     }
+
 }

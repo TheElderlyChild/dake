@@ -1,4 +1,4 @@
-package com.application.dake.controllers;
+package com.application.dake.adapters;
 
 import android.content.Context;
 import android.content.Intent;

@@ -5,10 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.application.dake.R;
-import com.application.dake.controllers.AccountAdapter;
+import com.application.dake.adapters.AccountAdapter;
 import com.application.dake.models.AccountItem;
 
 import java.util.ArrayList;

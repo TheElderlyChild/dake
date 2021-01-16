@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.application.dake.R;
-import com.application.dake.controllers.RestaurantInfoAdapter;
+import com.application.dake.adapters.RestaurantInfoAdapter;
 import com.application.dake.models.Restaurant;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;

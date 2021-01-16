@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -31,9 +32,15 @@ public class MenuItemSelectFragment extends DialogFragment {
     private String name;
     private String description;
     private String price;
+    private int amount;
     private TextView textName;
     private TextView textDescription;
     private TextView textPrice;
+    private TextView textAmount;
+    private Button plusItem;
+    private Button minusItem;
+    private Button btnCancel;
+    private Button btnAddCart;
 
     public MenuItemSelectFragment() {
         // Required empty public constructor
@@ -65,7 +72,7 @@ public class MenuItemSelectFragment extends DialogFragment {
             name = getArguments().getString(ARG_NAME);
             description = getArguments().getString(ARG_DESCRIPTION);
             price = getArguments().getString(ARG_PRICE);
-
+            amount=1;
         }
     }
 
@@ -79,12 +86,45 @@ public class MenuItemSelectFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         textName=view.findViewById(R.id.textName);
         textDescription=view.findViewById(R.id.textDescription);
         textPrice=view.findViewById(R.id.textPrice);
-        getDialog().setTitle("Add To Cart");
+        textAmount= view.findViewById(R.id.textAmount);
+        plusItem= view.findViewById(R.id.plusItem);
+        minusItem = view.findViewById(R.id.minusItem);
+        btnCancel =view.findViewById(R.id.btnCancel);
+        btnAddCart =view.findViewById(R.id.btnAddCart);
+
         textName.setText(name);
         textDescription.setText(description);
         textPrice.setText(price);
+        textAmount.setText(String.valueOf(amount));
+
+        plusItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                amount+=1;
+                textAmount.setText(String.valueOf(amount));
+            }
+        });
+
+        minusItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(amount<=0){
+                    return;
+                }
+                amount-=1;
+                textAmount.setText(String.valueOf(amount));
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
     }
 }

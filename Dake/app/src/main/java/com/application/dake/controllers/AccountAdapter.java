@@ -21,7 +21,7 @@ import com.application.dake.models.AccountItem;
 
 import java.util.ArrayList;
 
-import static com.application.dake.R.layout.activity_account_placeholders;
+import static com.application.dake.R.layout.account_placeholders;
 
 public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountViewHolder> {
     private ArrayList<AccountItem> mAccountList;
@@ -33,22 +33,22 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountV
             int itemPosition = accountRecycler.getChildLayoutPosition(view);
             Intent intent;
             switch(itemPosition){
-                case 1:
+                case 0:
                     intent= new Intent(context, ProfileActivity.class);
                     break;
-                case 2:
+                case 1:
                     intent= new Intent(context, OrdersActivity.class);
                     break;
-                case 3:
+                case 2:
                     intent= new Intent(context, NotificationsActivity.class);
                     break;
-                case 4:
+                case 3:
                     intent= new Intent(context, HelpActivity.class);
                     break;
-                case 5:
+                case 4:
                     intent= new Intent(context, RewardsActivity.class);
                     break;
-                case 6:
+                case 5:
                     intent= new Intent(context, AboutUsActivity.class);
                     break;
                 default:
@@ -80,8 +80,9 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountV
 
     @Override
     public AccountViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(activity_account_placeholders,parent,false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(account_placeholders,parent,false);
         AccountViewHolder acc= new AccountViewHolder(v);
+        v.setOnClickListener(mOnClickListener);
         return acc;
     }
 

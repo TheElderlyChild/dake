@@ -5,13 +5,16 @@ public class OrderItem extends Model{
     private int amount;
     private double price;
 
+    private String restaurantID;
+
     public OrderItem() {
     }
 
-    public OrderItem(String name, int amount, double price) {
+    public OrderItem(String name, int amount, double price, String restaurantID) {
         this.name = name;
         this.amount = amount;
         this.price = price;
+        this.restaurantID = restaurantID;
     }
 
     public String getName() {
@@ -38,4 +41,11 @@ public class OrderItem extends Model{
         this.price = price;
     }
 
+    public String getRestaurantID() {
+        return restaurantID;
+    }
+
+    public void setRestaurantID(String restaurantID) {
+        this.restaurantID = restaurantID;
+    }
 }

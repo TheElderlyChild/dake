@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.application.dake">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!--
     Allows Glide to monitor connectivity status and restart failed requests if users go from a
     a disconnected to a connected network state.
     -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dake">
-        <activity android:name=".AccountPlaceholdersActivity"></activity>
+        <activity android:name=".views.RewardsActivity"></activity>
+        <activity android:name=".views.NotificationsActivity" />
+        <activity android:name=".views.OrdersActivity" />
+        <activity android:name=".views.HelpActivity" />
+        <activity android:name=".views.AboutUsActivity" />
+        <activity android:name=".views.ProfileActivity" />
+        <activity android:name=".AccountPlaceholdersActivity" />
         <activity android:name=".views.AccountActivity" />
         <activity android:name=".views.SignUpActivity" />
         <activity android:name=".views.AuthActivity" />

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.application.dake.R;
 import com.application.dake.controllers.AccountAdapter;
@@ -39,4 +40,5 @@ public class AccountActivity extends AppCompatActivity {
         accountRecycler.setAdapter(accountAdapter);
 
     }
+
 }

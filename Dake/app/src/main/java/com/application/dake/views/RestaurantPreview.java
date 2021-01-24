@@ -5,20 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.application.dake.R;
-import com.application.dake.controllers.MenuItemAdapter;
+import com.application.dake.adapters.MenuItemAdapter;
 import com.application.dake.models.MenuItem;
 import com.application.dake.models.Restaurant;
-import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -27,8 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +75,7 @@ public class RestaurantPreview extends AppCompatActivity {
 
         //Fill in menu items of the restaurant
         List<MenuItem> menu = new ArrayList<MenuItem>();
-        MenuItemAdapter adapter = new MenuItemAdapter(this, menu);
+        MenuItemAdapter adapter = new MenuItemAdapter(this, menu, id);
         recyclerMenu.setLayoutManager(new LinearLayoutManager(this));
         recyclerMenu.setAdapter(adapter);
 

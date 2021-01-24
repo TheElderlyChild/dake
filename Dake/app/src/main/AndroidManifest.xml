@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dake">
+<<<<<<< HEAD
         <activity android:name=".views.RewardsActivity"></activity>
         <activity android:name=".views.NotificationsActivity" />
         <activity android:name=".views.OrdersActivity" />
@@ -23,6 +24,14 @@
         <activity android:name=".views.AboutUsActivity" />
         <activity android:name=".views.ProfileActivity" />
         <activity android:name=".AccountPlaceholdersActivity" />
+=======
+        <activity android:name=".NotificationsActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".OrdersActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".RewardsActivity" />
+>>>>>>> 6d39dd94e46d4d87272d124394a911dbb38a2fbb
         <activity android:name=".views.AccountActivity" />
         <activity android:name=".views.SignUpActivity" />
         <activity android:name=".views.AuthActivity" />

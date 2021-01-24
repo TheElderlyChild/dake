@@ -1,7 +1,6 @@
-package com.application.dake.controllers;
+package com.application.dake.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.dake.R;
 import com.application.dake.models.MenuItem;
-import com.application.dake.models.Restaurant;
 import com.application.dake.views.MenuItemSelectFragment;
 import com.application.dake.views.RestaurantPreview;
 
@@ -24,6 +22,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.ViewHo
     private Context context;
     private static final String TAG = "Menu Item Adapter";
     private RecyclerView mRecyclerView;
+    private String restaurantID;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
@@ -32,14 +31,15 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.ViewHo
             RestaurantPreview activity = (RestaurantPreview) context;
             FragmentManager fm = activity.getSupportFragmentManager();
             MenuItemSelectFragment menuItemSelectFragment =
-                    MenuItemSelectFragment.newInstance(item.getName(), item.getDescription(), String.valueOf(item.getPrice()));
+                    MenuItemSelectFragment.newInstance(item.getName(), item.getDescription(), String.valueOf(item.getPrice()),restaurantID);
             menuItemSelectFragment.show(fm, "fragment_menu_item");
         }
     };
 
-    public MenuItemAdapter(Context context, List<MenuItem> localDataSet) {
+    public MenuItemAdapter(Context context, List<MenuItem> localDataSet, String restaurantID) {
         this.localDataSet = localDataSet;
         this.context = context;
+        this.restaurantID = restaurantID;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -87,7 +87,6 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.ViewHo
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-
         mRecyclerView = recyclerView;
     }
 

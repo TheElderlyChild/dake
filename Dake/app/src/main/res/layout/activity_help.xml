@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".views.HelpActivity">
+=======
+    tools:context=".HelpActivity">
+>>>>>>> 6d39dd94e46d4d87272d124394a911dbb38a2fbb
 
 </androidx.constraintlayout.widget.ConstraintLayout>

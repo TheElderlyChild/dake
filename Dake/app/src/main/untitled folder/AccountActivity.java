@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.application.dake.R;
-import com.application.dake.controllers.AccountAdapter;
+import com.application.dake.adapters.AccountAdapter;
 import com.application.dake.models.AccountItem;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class AccountActivity extends AppCompatActivity {
         accountRecycler= findViewById(R.id.accountRecycler);
         accountRecycler.setHasFixedSize(true);
         accountLayoutManager= new LinearLayoutManager(this);
-        accountAdapter= new AccountAdapter(AccountsList);
+        accountAdapter= new AccountAdapter(AccountsList,this);
 
         accountRecycler.setLayoutManager(accountLayoutManager);
         accountRecycler.setAdapter(accountAdapter);

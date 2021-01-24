@@ -6,13 +6,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.application.dake.R;
+import com.application.dake.models.OrderItem;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.StorageReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,14 +34,24 @@ public class MenuItemSelectFragment extends DialogFragment {
     private static final String ARG_NAME = "param1";
     private static final String ARG_DESCRIPTION = "param2";
     private static final String ARG_PRICE = "param3";
+    private static final String ARG_RESTAURANT_ID = "param4";
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // TODO: Rename and change types of parameters
     private String name;
     private String description;
     private String price;
+    private String restaurantID;
+    private int amount;
     private TextView textName;
     private TextView textDescription;
     private TextView textPrice;
+    private TextView textAmount;
+    private Button plusItem;
+    private Button minusItem;
+    private Button btnCancel;
+    private Button btnAddCart;
 
     public MenuItemSelectFragment() {
         // Required empty public constructor
@@ -48,12 +66,13 @@ public class MenuItemSelectFragment extends DialogFragment {
      * @return A new instance of fragment MenuItemSelectFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MenuItemSelectFragment newInstance(String param1, String param2, String param3) {
+    public static MenuItemSelectFragment newInstance(String param1, String param2, String param3, String param4) {
         MenuItemSelectFragment fragment = new MenuItemSelectFragment();
         Bundle args = new Bundle();
         args.putString(ARG_NAME, param1);
         args.putString(ARG_DESCRIPTION, param2);
         args.putString(ARG_PRICE, param3);
+        args.putString(ARG_RESTAURANT_ID, param4);
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,7 +84,8 @@ public class MenuItemSelectFragment extends DialogFragment {
             name = getArguments().getString(ARG_NAME);
             description = getArguments().getString(ARG_DESCRIPTION);
             price = getArguments().getString(ARG_PRICE);
-
+            restaurantID = getArguments().getString(ARG_RESTAURANT_ID);
+            amount=1;
         }
     }
 
@@ -79,12 +99,58 @@ public class MenuItemSelectFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         textName=view.findViewById(R.id.textName);
         textDescription=view.findViewById(R.id.textDescription);
         textPrice=view.findViewById(R.id.textPrice);
-        getDialog().setTitle("Add To Cart");
+        textAmount= view.findViewById(R.id.textAmount);
+        plusItem= view.findViewById(R.id.plusItem);
+        minusItem = view.findViewById(R.id.minusItem);
+        btnCancel =view.findViewById(R.id.btnCancel);
+        btnAddCart =view.findViewById(R.id.btnAddCart);
+
         textName.setText(name);
         textDescription.setText(description);
         textPrice.setText(price);
+        textAmount.setText(String.valueOf(amount));
+
+        plusItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                amount+=1;
+                textAmount.setText(String.valueOf(amount));
+            }
+        });
+
+        minusItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(amount<=0){
+                    return;
+                }
+                amount-=1;
+                textAmount.setText(String.valueOf(amount));
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
+        btnAddCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //AddToCart
+                if(amount!=0) {
+                    CollectionReference cartRef = db.collection("customer").document(mAuth.getUid())
+                            .collection("cart");
+                    cartRef.document().set(new OrderItem(name, amount, Double.valueOf(price),restaurantID));
+                }
+                dismiss();
+            }
+        });
     }
 }
